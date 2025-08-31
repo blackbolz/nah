@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$NAH - Not Another Hype Coin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .logo {
+            font-size: 4em;
+            font-weight: 900;
+            color: #333;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .nah-button {
+            position: relative;
+            display: inline-block;
+            padding: 20px 60px;
+            font-size: 2em;
+            font-weight: bold;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .nah-button:hover {
+            background: #555;
+        }
+
+        .section {
+            margin: 80px 0;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .tokenomics {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .roadmap-container {
+            position: relative;
+            min-height: 300px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sticky-note {
+            background: #ffeb3b;
+            padding: 20px;
+            transform: rotate(-5deg);
+            font-size: 1.5em;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            font-family: 'Comic Sans MS', cursive;
+        }
+
+        .chart-container {
+            height: 300px;
+            background: #f9f9f9;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flat-line {
+            width: 80%;
+            height: 2px;
+            background: #666;
+            position: relative;
+        }
+
+        .chart-label {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.9em;
+            color: #999;
+        }
+
+        .community-wall {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .meme-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .bouncing-nah {
+            position: fixed;
+            font-size: 3em;
+            font-weight: bold;
+            color: rgba(51, 51, 51, 0.1);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .whitepaper-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .whitepaper-link:hover {
+            background: #555;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .features-list li:before {
+            content: "• ";
+            color: #666;
+            font-weight: bold;
+        }
+
+        .click-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.9);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 8px;
+            font-size: 1.2em;
+            display: none;
+            z-index: 1000;
+        }
+
+        @keyframes bounce {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(calc(100vw - 120px), 0); }
+            50% { transform: translate(calc(100vw - 120px), calc(100vh - 80px)); }
+            75% { transform: translate(0, calc(100vh - 80px)); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .bouncing-nah {
+            animation: bounce 20s linear infinite;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 3em;
+            }
+            
+            .nah-button {
+                padding: 15px 40px;
+                font-size: 1.5em;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bouncing-nah">NAH</div>
+    
+    <div class="container">
+        <header class="header">
+            <div class="logo">$NAH</div>
+            <div class="tagline">Expecting something big? …Nah.</div>
+            <button class="nah-button" id="nahButton">NAH</button>
+        </header>
+
+        <section class="section">
+            <h2>What is $NAH?</h2>
+            <p>While every project is shouting "next Solana," "next ETH," or "next billion-dollar utility," $NAH doesn't bother. It's the coin that embraces rejection, shrugs off hype, and side-eyes promises.</p>
+            <ul class="features-list">
+                <li>No "next big thing."</li>
+                <li>No roadmap.</li>
+                <li>No promises.</li>
+                <li>Just vibes.</li>
+            </ul>
+            <p>Every time someone asks "Will it rug?" the answer is simple: <strong>NAH.</strong></p>
+            <p>Every time a dev says "We're different," the community replies: <strong>NAH.</strong></p>
+            <p>Every time a trader FOMOs in… the chart says: <strong>NAH.</strong></p>
+        </section>
+
+        <section class="section tokenomics">
+            <h2>Tokenomics? …Nah.</h2>
+            <p>Why complicate things? It's a token. You can buy it. You can sell it. You can hold it. Or don't. We literally don't care.</p>
+        </section>
+
+        <section class="section">
+            <h2>Roadmap</h2>
+            <div class="roadmap-container">
+                <div class="sticky-note">NAH.</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Whitepaper</h2>
+            <p>Revolutionary technology demands revolutionary documentation.</p>
+            <a href="#" class="whitepaper-link" id="whitepaperLink">Read Our Whitepaper</a>
+        </section>
+
+        <section class="section">
+            <h2>Price Chart</h2>
+            <div class="chart-container">
+                <div class="flat-line"></div>
+                <div class="chart-label">Movement? Nah.</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Community Memes</h2>
+            <p>The lifeblood of $NAH. Submit your own? …Nah, we'll just make some up.</p>
+            <div class="community-wall">
+                <div class="meme-card">
+                    <h3>"Is this the next 100x?"</h3>
+                    <p><strong>NAH.</strong></p>
+                </div>
+                <div class="meme-card">
+                    <h3>"Do we have a dev team?"</h3>
+                    <p><strong>NAH.</strong></p>
+                </div>
+                <div class="meme-card">
+                    <h3>"Are you guys gonna rug?"</h3>
+                    <p><strong>NAH.</strong></p>
+                </div>
+                <div class="meme-card">
+                    <h3>"Marketing budget?"</h3>
+                    <p><strong>NAH.</strong></p>
+                </div>
+                <div class="meme-card">
+                    <h3>"Utility?"</h3>
+                    <p><strong>NAH.</strong></p>
+                </div>
+                <div class="meme-card">
+                    <h3>"Next bull run?"</h3>
+                    <p><strong>NAH.</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>How to Buy</h2>
+            <p>Do you really want to know? Fine.</p>
+            <p>1. Get some SOL from whatever exchange you use. We don't care which one.</p>
+            <p>2. Download a Solana wallet. Phantom, Solflare, whatever. They're all fine, we guess.</p>
+            <p>3. Use Jupiter or Raydium or some DEX. Search for $NAH and swap. Or don't.</p>
+            <p>4. Congratulations, you now own some digital apathy. Do whatever you want with it.</p>
+        </section>
+    </div>
+
+    <div class="click-message" id="clickMessage">
+        Did you expect something? NAH.
+    </div>
+
+    <script>
+        // Interactive NAH button
+        const nahButton = document.getElementById('nahButton');
+        const clickMessage = document.getElementById('clickMessage');
+        let buttonMoved = false;
+
+        nahButton.addEventListener('mouseenter', function() {
+            if (!buttonMoved && Math.random() > 0.5) {
+                const randomX = Math.random() * (window.innerWidth - 200);
+                const randomY = Math.random() * (window.innerHeight - 100);
+                
+                nahButton.style.position = 'fixed';
+                nahButton.style.left = randomX + 'px';
+                nahButton.style.top = randomY + 'px';
+                nahButton.style.transition = 'all 0.5s ease';
+                buttonMoved = true;
+                
+                setTimeout(() => {
+                    nahButton.style.position = 'relative';
+                    nahButton.style.left = 'auto';
+                    nahButton.style.top = 'auto';
+                    buttonMoved = false;
+                }, 2000);
+            }
+        });
+
+        nahButton.addEventListener('click', function() {
+            clickMessage.style.display = 'block';
+            
+            setTimeout(() => {
+                clickMessage.style.display = 'none';
+                // Refresh page
+                window.location.reload();
+            }, 2000);
+        });
+
+        // Whitepaper link
+        document.getElementById('whitepaperLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Create a temporary popup
+            const popup = document.createElement('div');
+            popup.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: white;
+                padding: 40px;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                font-size: 2em;
+                font-weight: bold;
+                z-index: 1000;
+                text-align: center;
+            `;
+            popup.textContent = 'NAH.';
+            
+            document.body.appendChild(popup);
+            
+            setTimeout(() => {
+                document.body.removeChild(popup);
+            }, 3000);
+        });
+
+        // Add some random "nah" elements that appear and disappear
+        setInterval(() => {
+            if (Math.random() > 0.95) {
+                const nah = document.createElement('div');
+                nah.textContent = 'nah';
+                nah.style.cssText = `
+                    position: fixed;
+                    top: ${Math.random() * 100}vh;
+                    left: ${Math.random() * 100}vw;
+                    font-size: 1em;
+                    color: rgba(150, 150, 150, 0.5);
+                    pointer-events: none;
+                    z-index: -1;
+                `;
+                
+                document.body.appendChild(nah);
+                
+                setTimeout(() => {
+                    if (nah.parentNode) {
+                        document.body.removeChild(nah);
+                    }
+                }, 3000);
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
